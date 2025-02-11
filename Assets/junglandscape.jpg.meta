@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      junglandscape_0: 5760941358472437999
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

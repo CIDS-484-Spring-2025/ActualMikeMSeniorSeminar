@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rocky clif_0: -1317193243287506387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

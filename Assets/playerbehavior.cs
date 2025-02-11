@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -15,6 +16,13 @@ public class PlayerBehaviour : MonoBehaviour
     {
         References.thePlayer = this;
         ourRigidBody = GetComponent<Rigidbody2D>();
+    }
+    void Start()
+    {
+        if (GameManager.instance != null && GameManager.instance.lastScene == SceneManager.GetActiveScene().name)
+        {
+            transform.position = GameManager.instance.playerPosition; // Restore saved position
+        }
     }
 
     // Update is called once per frame

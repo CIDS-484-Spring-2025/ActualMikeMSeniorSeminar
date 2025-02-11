@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dinoportal_0: 3222902484854004161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
