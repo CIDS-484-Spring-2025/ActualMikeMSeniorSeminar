@@ -38,6 +38,7 @@ public class ObjectPickup : MonoBehaviour
 
     IEnumerator FadeText()
     {
+        //same thing that i used weapons
         pickupNotification.alpha = 1; // Make visible
         yield return new WaitForSeconds(2f); // Wait for 2 seconds
 

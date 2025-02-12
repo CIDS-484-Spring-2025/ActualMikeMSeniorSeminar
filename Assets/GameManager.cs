@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SavePlayerPosition(Vector3 position)
+    public void SavePlayerPosition(Vector2 position)
     {
         playerPosition = position;
         lastScene = SceneManager.GetActiveScene().name;

@@ -43,16 +43,14 @@ public class PlayerBehaviour : MonoBehaviour
         // If the input vector is not zero, rotate the object to face the direction of movement
         if (inputVector != Vector2.zero)
         {
+            //calculates the angle (in degrees) based on the inputVector
+            //Atan2(y, x) gives the angle in radians, and Rad2Deg converts it to degree
             float angle = Mathf.Atan2(inputVector.y, inputVector.x) * Mathf.Rad2Deg;
+            //rotates the object to face that direction
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
 
-        //Click to fire
-        //If clicked, create a bullet at our current position
-        //if (Input.GetButton("Fire1"))
-        //{
-        //Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation);
-        //}
+   
 
     }
 

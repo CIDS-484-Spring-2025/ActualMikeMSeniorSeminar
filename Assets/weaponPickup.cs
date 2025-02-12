@@ -56,6 +56,7 @@ public class weaponPickup : MonoBehaviour
 
     IEnumerator FadeText(TextMeshProUGUI notificationText)
     {
+        //alpha deals with transparency, 1 is fully visible and 0 not visible at all
         notificationText.alpha = 1;
         yield return new WaitForSeconds(2f);
 
@@ -64,6 +65,7 @@ public class weaponPickup : MonoBehaviour
 
         while (elapsedTime < fadeDuration)
         {
+            //gradually decreases the alpha from 1 to 0
             notificationText.alpha = Mathf.Lerp(1, 0, elapsedTime / fadeDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
