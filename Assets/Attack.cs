@@ -8,13 +8,15 @@ public class Attack : MonoBehaviour
 
     // Different damage values for different parts of the object
 
-    public int minDamage;
-
-    public int maxDamage;
-
-  
+   
 
 
+
+    private void Awake()
+    {
+        References.Attack = this;
+
+    }
 
     // Detect collision with other objects (e.g., player)
 
@@ -34,7 +36,7 @@ public class Attack : MonoBehaviour
 
             {
 
-                ApplyDamage(minDamage);
+                //ApplyDamage(minDamage);
 
             }
 
@@ -42,7 +44,7 @@ public class Attack : MonoBehaviour
 
             {
 
-                ApplyDamage(maxDamage);
+                //ApplyDamage(maxDamage);
 
             }
             else
@@ -57,7 +59,7 @@ public class Attack : MonoBehaviour
     }
 
 
-    void ApplyDamage(int damageAmount)
+    public static void ApplyDamage(int damageAmount)
 
     {
 
