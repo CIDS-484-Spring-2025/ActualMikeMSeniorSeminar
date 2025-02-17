@@ -6,4 +6,10 @@ The progress so far has been creating the starting scene. In this scene, the pla
 ## Milestones
 ### Milestone 1
 https://mediaspace.wisconsin.edu/media/milestone1seniorsem/1_894ob21h
-
+## Things to Still Implement 
+a save point
+more areas in the game
+enemy attacks
+health system 
+item shops
+nps(non playable characters)
