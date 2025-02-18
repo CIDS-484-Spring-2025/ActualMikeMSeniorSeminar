@@ -12,5 +12,5 @@ more areas in the game
 enemy attacks  
 health system  
 item shops  
-nps(non playable characters) 
+nps(non playable characters)  
 menu
