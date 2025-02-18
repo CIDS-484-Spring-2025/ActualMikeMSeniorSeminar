@@ -11,6 +11,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public float speed; //'float' is short for floating point number, which is basically just a normal number
     private Rigidbody2D ourRigidBody;
+    public int health = 10;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Start()
     {
+       
         if (GameManager.instance != null && GameManager.instance.lastScene == SceneManager.GetActiveScene().name)
         {
             transform.position = GameManager.instance.playerPosition; // Restore saved position
