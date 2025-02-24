@@ -30,7 +30,7 @@ public class ButtonFunction : MonoBehaviour
         {
             GameManager.instance.SavePlayerPosition(player.transform.position);
         }
-
+        
         SceneManager.LoadScene(sceneName);
     }
 }

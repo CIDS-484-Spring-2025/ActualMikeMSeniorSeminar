@@ -66,6 +66,7 @@ public class Attack : MonoBehaviour
         // Assuming the player has a method to take damage
 
         Debug.Log("Applying " + damageAmount + " damage.");
+        References.EnemyBehavior.TakeDamage(damageAmount);
 
         // Example: playerHealth.TakeDamage(damageAmount);
 

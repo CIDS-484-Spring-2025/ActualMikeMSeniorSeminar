@@ -85,6 +85,11 @@ public class InventoryDisplay : MonoBehaviour
     void UseItem(string item)
     {
         Debug.Log($"Used: {item}");
+        // Load saved player health if it exists
+        if (PlayerPrefs.HasKey("PlayerHealth"))
+        {
+            References.thePlayer.health = PlayerPrefs.GetInt("PlayerHealth");
+        }
 
         //if sepcific item do somethign special
         if (item != "cake")
@@ -97,7 +102,10 @@ public class InventoryDisplay : MonoBehaviour
             Debug.Log("gained 20 hp");
             References.thePlayer.health += 20;
         }
-      
+
+        // Save updated health
+        PlayerPrefs.SetInt("PlayerHealth", References.thePlayer.health);
+        PlayerPrefs.Save();
 
         // Remove the item from inventory
         ObjectPickup.inventory.Remove(item);

@@ -20,7 +20,11 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Start()
     {
-       
+        // Load saved health when the scene starts
+        if (PlayerPrefs.HasKey("PlayerHealth"))
+        {
+            health = PlayerPrefs.GetInt("PlayerHealth");
+        }
         if (GameManager.instance != null && GameManager.instance.lastScene == SceneManager.GetActiveScene().name)
         {
             transform.position = GameManager.instance.playerPosition; // Restore saved position

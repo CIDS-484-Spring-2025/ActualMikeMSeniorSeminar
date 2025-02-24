@@ -44,7 +44,11 @@ public class movement : MonoBehaviour
                 Attack.ApplyDamage(maxDamage);
             }
             else { }
-            SceneManager.LoadScene(sceneToLoad);
+            if (References.EnemyBehavior.enemyHealth > 0)
+            {
+                SceneManager.LoadScene(sceneToLoad);
+                
+            }
         }
         else
         {

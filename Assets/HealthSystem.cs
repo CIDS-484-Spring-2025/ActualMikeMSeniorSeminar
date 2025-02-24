@@ -29,9 +29,9 @@ public class HealthSystem : MonoBehaviour
     }
     public static void LowerPlayerHealth()
     {
-        if (References.thePlayer.health < 0)
+        if (References.thePlayer.health <= 0)
         {
-            References.thePlayer.health = 0;
+            PlayerPrefs.DeleteKey("PlayerHealth");
             //load to last save point
         }
         else 
@@ -39,10 +39,7 @@ public class HealthSystem : MonoBehaviour
         References.thePlayer.health -= 10;
         }
     }
-    void LowerEnemyHealth()
-    {
-        //if health lower than zero go to the scene it was previous at
-        // lower enemy health by like 50 or something 
-        //References.thePlayer.health -= 10;
+    
+      
     }
 }

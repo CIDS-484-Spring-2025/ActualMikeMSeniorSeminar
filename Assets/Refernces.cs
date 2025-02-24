@@ -10,8 +10,8 @@ public static class References
     public static Followplayer Followplayer;
     public static Attack Attack;
     public static HealthSystem HealthSystem;
-    //public static float maxDistanceInALevel = 1000;
-
+    public static EnemyBehavior EnemyBehavior;
+    
 
    
 }
