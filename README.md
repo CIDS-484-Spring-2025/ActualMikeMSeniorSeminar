@@ -12,4 +12,4 @@ more areas in the game
 enemy attacks    
 item shops  
 nps(non playable characters)  
-menu
+menu(weapons?)
