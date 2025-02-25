@@ -11,7 +11,7 @@ public static class References
     public static Attack Attack;
     public static HealthSystem HealthSystem;
     public static EnemyBehavior EnemyBehavior;
-    
+    public static canvasBehavior CanvasBehavior;
 
    
 }
