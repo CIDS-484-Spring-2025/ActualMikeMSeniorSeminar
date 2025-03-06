@@ -27,7 +27,7 @@ public class HealthSystem : MonoBehaviour
         //if(References.thePlayer.health = maxHealth)
         References.thePlayer.health += 10;
     }
-    public static void LowerPlayerHealth()
+    public void LowerPlayerHealth()
     {
         if (References.thePlayer.health <= 0)
         {

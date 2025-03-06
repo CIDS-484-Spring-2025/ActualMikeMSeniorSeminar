@@ -7,6 +7,7 @@ public class canvasBehavior : MonoBehaviour
     public SceneAsset firstScene;
     public GameObject mainMenu;
     public GameObject creditsMenu;
+    public GameObject inventoryMenu;
     public GameObject currentMenu;
     // Start is called before the first frame update
     void Awake()
@@ -16,7 +17,8 @@ public class canvasBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Menu"))
+        //opens menu if space bar is pressed
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             if (currentMenu == mainMenu)
             {
@@ -65,5 +67,10 @@ public class canvasBehavior : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    } 
+    public void showInventory()
+    {
+        // to different menu to show inventory
+        References.InventoryDisplay.ShowInventory();
     }
 }

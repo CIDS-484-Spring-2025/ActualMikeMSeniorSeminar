@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public static class References
@@ -12,6 +13,7 @@ public static class References
     public static HealthSystem HealthSystem;
     public static EnemyBehavior EnemyBehavior;
     public static canvasBehavior CanvasBehavior;
+    public static InventoryDisplay InventoryDisplay;
 
-   
+
 }

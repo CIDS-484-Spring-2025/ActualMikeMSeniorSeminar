@@ -25,8 +25,8 @@ public class Menubuttons : MonoBehaviour
         // If the mouse is within our rectangle
         if (RectTransformUtility.RectangleContainsScreenPoint(rectangle, Input.mousePosition))
         {
-            image.color = Color.black;
-
+            //image.color = Color.black;
+            image.color = Color.gray;
             // Clicking should trigger an event
             if (Input.GetButtonDown("Fire1"))
             {
@@ -35,7 +35,7 @@ public class Menubuttons : MonoBehaviour
         }
         else
         {
-            image.color = Color.gray;
+            image.color = Color.black;
         }
     }
 }

@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    
     public int enemyHealth;
     public int maxHealth;
     public string previousScene;
     public EnemyHealthDisplay enemyHealthDisplay; // Reference to the health display script
+    public GameObject attackPrefab;
 
     private void Awake()
     {
@@ -60,5 +62,16 @@ public class EnemyBehavior : MonoBehaviour
             PlayerPrefs.DeleteKey("EnemyHealth"); // Reset saved health on death
             SceneManager.LoadScene(previousScene);
         }
+    }
+    public void Attack()
+    {
+        if (attackPrefab == null)
+        {
+            Debug.LogError("attackPrefab is not assigned in the Inspector!");
+            return;
+        }
+
+        Vector3 attackOffset = new Vector3(1f, 0f, 0f);
+        GameObject newAttack = Instantiate(attackPrefab, transform.position + attackOffset, transform.rotation);
     }
 }

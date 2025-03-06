@@ -499,7 +499,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 742941336506877698, guid: 440118b6b6f63f349a2efc69496e1922, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4063
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 742941336506877698, guid: 440118b6b6f63f349a2efc69496e1922, type: 3}
       propertyPath: m_LocalPosition.y
@@ -544,6 +544,14 @@ PrefabInstance:
     - target: {fileID: 2327332719537361209, guid: 440118b6b6f63f349a2efc69496e1922, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327332719537361209, guid: 440118b6b6f63f349a2efc69496e1922, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582148381209261762, guid: 440118b6b6f63f349a2efc69496e1922, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1021,6 +1029,7 @@ GameObject:
   - component: {fileID: 632785120}
   - component: {fileID: 632785122}
   - component: {fileID: 632785123}
+  - component: {fileID: 632785124}
   m_Layer: 0
   m_Name: boxforheart
   m_TagString: boxForHeart
@@ -1171,6 +1180,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &632785124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632785119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d6b31a949cad145bf4ee4d8a046e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &912296686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,6 +1594,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566e9920519bdd04f950cca4852339ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstScene: {fileID: 0}
+  mainMenu: {fileID: 0}
+  creditsMenu: {fileID: 0}
+  inventoryMenu: {fileID: 0}
+  currentMenu: {fileID: 0}
 --- !u!1 &1332286637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,6 +2281,50 @@ Transform:
   - {fileID: 623080012}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1802026779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1802026781}
+  - component: {fileID: 1802026780}
+  m_Layer: 0
+  m_Name: EnemyGameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1802026780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802026779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b052757ee6b4924c92c8041e5ad3bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1802026781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802026779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6632667, y: -1.5568296, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869537854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,7 +2832,7 @@ GameObject:
   - component: {fileID: 2120044617}
   m_Layer: 0
   m_Name: enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2850,8 +2920,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 20
+  maxHealth: 0
   previousScene: grasslands
   enemyHealthDisplay: {fileID: 1869537856}
+  attackPrefab: {fileID: 4349914321123921442, guid: afe76d68128d20a469e39b608d3d5e01, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2865,3 +2937,4 @@ SceneRoots:
   - {fileID: 1362362820}
   - {fileID: 2120044616}
   - {fileID: 327609019}
+  - {fileID: 1802026781}

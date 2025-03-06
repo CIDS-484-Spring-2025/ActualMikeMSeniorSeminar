@@ -9,7 +9,12 @@ public class InventoryDisplay : MonoBehaviour
     public GameObject hint; // UI element that shows the "Press E to use" message
 
     private string selectedItem = ""; // Stores the currently selected item
+    void Awake()
+    {
+        References.InventoryDisplay = this;
 
+
+    }
     private void Start()
     {
         ShowInventory(); // Display the inventory at the start
@@ -20,7 +25,7 @@ public class InventoryDisplay : MonoBehaviour
     }
 
     // Displays the inventory items in the UI
-    void ShowInventory()
+    public void ShowInventory()
     {
         // If inventory is empty, show a message and return
         if (ObjectPickup.inventory.Count == 0)
