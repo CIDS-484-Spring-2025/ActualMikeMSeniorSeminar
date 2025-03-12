@@ -10,17 +10,17 @@ https://mediaspace.wisconsin.edu/media/milestone1seniorsem/1_894ob21h
 placeholder
 ## Functional Things in the game 
 - enemy and player attack system  
-player movement  
-health system  
-menu  
-player spawn after battle  
-weapons  
-picking up objects and weapons
+- player movement  
+- health system  
+- menu  
+- player spawn after battle  
+- weapons  
+- picking up objects and weapons
 
 ## Things to Still Implement 
-a save point  
-more areas in the game     
-item shops  
-nps(non playable characters)  
-menu for weapons
-maximum player health
+- a save point  
+- more areas in the game     
+- item shops  
+- nps(non playable characters)  
+- menu for weapons
+- maximum player health
