@@ -6,11 +6,14 @@ The progress so far has been creating the starting scene. In this scene, the pla
 ## Milestones
 ### Milestone 1
 https://mediaspace.wisconsin.edu/media/milestone1seniorsem/1_894ob21h
-##Functional Things in the game 
-enemy attack system  
+## Functional Things in the game 
+enemy and player attack system  
 player movement  
 health system  
 menu  
+player spawn after battle  
+weapons  
+picking up objects and weapons
 
 ## Things to Still Implement 
 a save point  
