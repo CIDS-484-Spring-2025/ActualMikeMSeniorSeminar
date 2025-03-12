@@ -7,7 +7,7 @@ The progress so far has been creating the starting scene. In this scene, the pla
 ### Milestone 1
 https://mediaspace.wisconsin.edu/media/milestone1seniorsem/1_894ob21h 
 ### Milestone 2
-placeholder
+https://mediaspace.wisconsin.edu/media/MILESTONE+2/1_fp4dojm0
 ## Functional Things in the game 
 - enemy and player attack system  
 - player movement  
@@ -16,6 +16,7 @@ placeholder
 - player spawn after battle  
 - weapons  
 - picking up objects and weapons
+- item usage
 
 ## Things to Still Implement 
 - a save point  
