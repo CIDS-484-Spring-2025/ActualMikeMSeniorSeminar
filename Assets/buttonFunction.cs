@@ -25,11 +25,11 @@ public class ButtonFunction : MonoBehaviour
         }
 
         // Save player position before switching scenes
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        /*GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
             GameManager.instance.SavePlayerPosition(player.transform.position);
-        }
+        }*/
         
         SceneManager.LoadScene(sceneName);
     }

@@ -11,6 +11,8 @@ TagManager:
   - End
   - Middle
   - Enemy
+  - destroyer
+  - attack
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,7 @@ public static class References
     public static EnemyBehavior EnemyBehavior;
     public static canvasBehavior CanvasBehavior;
     public static InventoryDisplay InventoryDisplay;
+    public static EnemyAttackBehaviour EnemyAttackBehaviour;
 
 
 }

@@ -28,8 +28,11 @@ public class PlayerBehaviour : MonoBehaviour
         if (GameManager.instance != null && GameManager.instance.lastScene == SceneManager.GetActiveScene().name)
         {
             transform.position = GameManager.instance.playerPosition; // Restore saved position
+            Debug.Log("Loaded Player Position: " + transform.position);
         }
     }
+
+
 
     // Update is called once per frame
     void Update()

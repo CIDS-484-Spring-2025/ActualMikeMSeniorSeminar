@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance; // Singleton instance
 
-    public Vector2 playerPosition; // Store player position
+    public Vector3 playerPosition; // Store player position
     public string lastScene; // Store the last scene name
     public List<string> pickedUpObjects = new List<string>(); // Store picked-up objects
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SavePlayerPosition(Vector2 position)
+    public void SavePlayerPosition(Vector3 position)
     {
         playerPosition = position;
         lastScene = SceneManager.GetActiveScene().name;

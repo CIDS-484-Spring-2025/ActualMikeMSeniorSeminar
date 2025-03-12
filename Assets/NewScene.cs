@@ -3,12 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class NewScene : MonoBehaviour
 {
-    public string newScene; // Set in the Inspector
-    private bool hasTriggered = false; // Track if triggered
+    public string newScene; // Set this in the Inspector
 
     private void Awake()
     {
-        // Check if this object was already triggered and disable it
+        // If this object was already interacted with, disable it
         if (GameManager.instance != null && GameManager.instance.HasPickedUp(gameObject.name))
         {
             gameObject.SetActive(false);
@@ -17,16 +16,23 @@ public class NewScene : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!hasTriggered && collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            hasTriggered = true; // Mark as triggered
-            SavePlayerPosition(collision.gameObject);
-            GameManager.instance.AddPickedUpObject(gameObject.name); // Save object state
+            if (GameManager.instance != null)
+            {
+                // Save player's position once
+                GameManager.instance.SavePlayerPosition(collision.transform.position);
+                Debug.Log("Player position saved at: " + collision.transform.position);
+
+                // Prevent object from triggering again
+                GameManager.instance.AddPickedUpObject(gameObject.name);
+            }
+
             LoadScene();
         }
     }
 
-    public void LoadScene()
+    private void LoadScene()
     {
         if (!string.IsNullOrEmpty(newScene))
         {
@@ -37,12 +43,5 @@ public class NewScene : MonoBehaviour
             Debug.LogError("Scene name is not set.");
         }
     }
-
-    private void SavePlayerPosition(GameObject player)
-    {
-        if (GameManager.instance != null)
-        {
-            GameManager.instance.SavePlayerPosition(player.transform.position);
-        }
-    }
 }
+

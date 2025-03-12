@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,7 @@ public class EnemyBehavior : MonoBehaviour
     public string previousScene;
     public EnemyHealthDisplay enemyHealthDisplay; // Reference to the health display script
     public GameObject attackPrefab;
+    public Boolean isDestroyed = false;
 
     private void Awake()
     {
@@ -71,7 +73,22 @@ public class EnemyBehavior : MonoBehaviour
             return;
         }
 
-        Vector3 attackOffset = new Vector3(1f, 0f, 0f);
-        GameObject newAttack = Instantiate(attackPrefab, transform.position + attackOffset, transform.rotation);
+        //Vector3 attackOffset = new Vector3(1f, 0f, 0f);
+        //GameObject newAttack = Instantiate(attackPrefab, transform.position + attackOffset, transform.rotation);
+        if(isDestroyed = true)
+        {
+            isDestroyed = false;
+        }
+        if (isDestroyed == false)
+        {
+            //attack type 1
+            //Vector3 attackOffset = new Vector3(1f, 0f, 0f);
+            //GameObject newAttack = Instantiate(attackPrefab, transform.position + attackOffset, transform.rotation);
+            Vector3 attackOffset = new Vector3(0f, 0f, 2f);
+            Quaternion newRotation = Quaternion.Euler(0f, 0f, 90f); // Rotates 90 degrees on the Z-axis
+            GameObject newAttack = Instantiate(attackPrefab, transform.position + attackOffset, newRotation);
+
+        }
     }
+            
 }
