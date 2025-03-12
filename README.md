@@ -7,7 +7,7 @@ The progress so far has been creating the starting scene. In this scene, the pla
 ### Milestone 1
 https://mediaspace.wisconsin.edu/media/milestone1seniorsem/1_894ob21h 
 ### Milestone 2
-https://mediaspace.wisconsin.edu/media/MILESTONE+2/1_fp4dojm0
+https://mediaspace.wisconsin.edu/media/milestone+2+video/1_969zdjpp
 ## Functional Things in the game 
 - enemy and player attack system  
 - player movement  
