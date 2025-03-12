@@ -9,7 +9,7 @@ https://mediaspace.wisconsin.edu/media/milestone1seniorsem/1_894ob21h
 ### Milestone 2
 placeholder
 ## Functional Things in the game 
-enemy and player attack system  
+-enemy and player attack system  
 player movement  
 health system  
 menu  
