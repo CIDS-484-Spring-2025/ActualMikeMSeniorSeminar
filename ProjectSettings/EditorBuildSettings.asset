@@ -5,6 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 622a379ec7aa92248adf68234e8a7344
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4e3b5626d44517d468f179bfe9f92da7
+  - enabled: 0
+    path: Assets/Scenes/loadGame.unity
+    guid: 1a4769cd4731cdb459d31e632c4278c4
   - enabled: 1
     path: Assets/Scenes/grasslands.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
@@ -23,6 +32,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/items.unity
     guid: 6b9c74676f5374146a8cb79ca5869559
+  - enabled: 1
+    path: Assets/Scenes/shop.unity
+    guid: 50a394f987e1ee84bb60f1e01d6ab605
+  - enabled: 1
+    path: Assets/Scenes/jungle.unity
+    guid: 960757d9680345a468dea3708537b7d9
+  - enabled: 1
+    path: Assets/Scenes/sell.unity
+    guid: 76c85f202dae0cd49868a288cc918a2a
+  - enabled: 1
+    path: Assets/Scenes/buy.unity
+    guid: 0dd84e9da86a9734dbc5c491d599843a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

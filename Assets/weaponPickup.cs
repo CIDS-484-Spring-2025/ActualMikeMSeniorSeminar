@@ -21,6 +21,7 @@ public class weaponPickup : MonoBehaviour
             {
                 GameManager.instance.AddPickedUpObject(weaponName); // Save in GameManager
                 weaponInventory.Add(collision.gameObject); // Add to local inventory
+                WeaponRespawn.CollectItemByName(weaponName);
                 collision.gameObject.SetActive(false); // Disable in the scene
 
                 Debug.Log("Picked up: " + weaponName);

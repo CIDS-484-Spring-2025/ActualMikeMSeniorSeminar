@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour
+/*public class HealthSystem : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
@@ -41,4 +41,4 @@ public class HealthSystem : MonoBehaviour
     }
     
       
-    }
+    }*/

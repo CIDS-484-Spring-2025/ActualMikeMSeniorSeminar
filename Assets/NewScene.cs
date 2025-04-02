@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class NewScene : MonoBehaviour
 {
     public string newScene; // Set this in the Inspector
-
+    
     private void Awake()
     {
         // If this object was already interacted with, disable it
@@ -26,11 +26,15 @@ public class NewScene : MonoBehaviour
 
                 // Prevent object from triggering again
                 GameManager.instance.AddPickedUpObject(gameObject.name);
+               
             }
 
+
             LoadScene();
+            
         }
     }
+
 
     private void LoadScene()
     {

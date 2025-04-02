@@ -18,7 +18,8 @@ public class EnemyAttackBehaviour : MonoBehaviour
         // Example: Ignore collision between the bullet and the player
         if (other.gameObject.CompareTag("Player")) // Change "Player" to your desired tag
         {
-            References.thePlayer.health -= 1;
+            References.thePlayer.TakeDamage(1);
+
             
         }
     }

@@ -27,32 +27,29 @@ public class InventoryDisplay : MonoBehaviour
     // Displays the inventory items in the UI
     public void ShowInventory()
     {
-        // If inventory is empty, show a message and return
-        if (ObjectPickup.inventory.Count == 0)
+        if (GameManager.instance.inventory.Count == 0)
         {
             inventoryText.text = "No items collected.";
             return;
         }
 
-        inventoryText.text = "Inventory:\n"; // Start inventory text
+        inventoryText.text = "Inventory:\n";
         int count = 0;
 
-        // Loop through inventory items and display them
-        foreach (string item in ObjectPickup.inventory)
+        foreach (string item in GameManager.instance.inventory)
         {
-            if (count >= maxItemsToShow) break; // Stop displaying extra items
+            if (count >= maxItemsToShow) break;
 
-            // Make the item name yellow and clickable using TextMeshPro rich text
             inventoryText.text += $"- <color=yellow><link={item}>{item}</link></color>\n";
             count++;
         }
 
-        // If there are more items than maxItemsToShow, show a message indicating more items exist
-        if (ObjectPickup.inventory.Count > maxItemsToShow)
+        if (GameManager.instance.inventory.Count > maxItemsToShow)
         {
-            inventoryText.text += $"...and {ObjectPickup.inventory.Count - maxItemsToShow} more.";
+            inventoryText.text += $"...and {GameManager.instance.inventory.Count - maxItemsToShow} more.";
         }
     }
+
 
     private void Update()
     {
@@ -86,43 +83,52 @@ public class InventoryDisplay : MonoBehaviour
         }
     }
 
-    // Handles item usage (removing it from inventory)
     void UseItem(string item)
     {
         Debug.Log($"Used: {item}");
-        // Load saved player health if it exists
-        if (PlayerPrefs.HasKey("PlayerHealth"))
+
+        // Ensure the player reference is valid
+        if (References.thePlayer == null)
         {
-            References.thePlayer.health = PlayerPrefs.GetInt("PlayerHealth");
+            Debug.LogError("Player reference is missing!");
+            return;
         }
 
-        //if sepcific item do somethign special
+        // Increase health based on item type
         if (item != "cake")
         {
-            Debug.Log("gained 10 hp");
+            Debug.Log("Gained 10 HP");
             References.thePlayer.health += 10;
         }
         else
         {
-            Debug.Log("gained 20 hp");
+            Debug.Log("Gained 20 HP");
             References.thePlayer.health += 20;
         }
 
-        // Save updated health
-        PlayerPrefs.SetInt("PlayerHealth", References.thePlayer.health);
-        PlayerPrefs.Save();
+        // Update the health UI
+        References.HealthDisplay.UpdateHealthDisplay();
 
-        // Remove the item from inventory
-        ObjectPickup.inventory.Remove(item);
+        // Remove item from inventory
+        if (GameManager.instance.inventory.Contains(item))
+        {
+            GameManager.instance.inventory.Remove(item);
+            Debug.Log($"Item {item} removed from inventory. Remaining items: {string.Join(", ", GameManager.instance.inventory)}");
+        }
+        else
+        {
+            Debug.LogError($"Item {item} not found in inventory!");
+        }
 
-        // Hide the tooltip after using the item
-        hint.SetActive(false);
-        selectedItem = ""; // Clear the selected item
+        // Hide tooltip
+        if (hint != null)
+        {
+            hint.SetActive(false);
+        }
 
-        // Refresh inventory display to reflect changes
+        selectedItem = ""; // Clear selection
+
+        // Refresh inventory UI
         ShowInventory();
-       
-        // Update the health display UI (to reflect the health change)
-        FindObjectOfType<HealthDisplay>().UpdateHealthDisplay();
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
+using static UnityEditor.Progress;
 
 public class ObjectPickup : MonoBehaviour
 {
@@ -17,12 +18,17 @@ public class ObjectPickup : MonoBehaviour
             // Prevent duplicate pickups
             if (!GameManager.instance.HasPickedUp(itemName))
             {
+                
                 GameManager.instance.AddPickedUpObject(itemName); // Save item in GameManager
                 inventory.Add(itemName); // Add to inventory
-                collision.gameObject.SetActive(false); // Hide object in scene
+                if (itemName != "item1" || itemName != "item2" || itemName != "item3")
+                {
+                    WeaponRespawn.CollectItemByName(itemName);
+                    collision.gameObject.SetActive(false); // Hide object in scene
 
-                Debug.Log("Picked up: " + itemName);
-                ShowPickupMessage(itemName); // Show notification
+                    Debug.Log("Picked up: " + itemName);
+                    ShowPickupMessage(itemName); // Show notification
+                }
             }
         }
     }

@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerBehaviour : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour, IDataPersistence
 {
 
     //Never set the value of a public variable here - the inspector will override it without telling you.
@@ -12,28 +13,65 @@ public class PlayerBehaviour : MonoBehaviour
     public float speed; //'float' is short for floating point number, which is basically just a normal number
     private Rigidbody2D ourRigidBody;
     public int health = 10;
+  
 
     private void Awake()
     {
+
         References.thePlayer = this;
         ourRigidBody = GetComponent<Rigidbody2D>();
+        //transform.position = Vector3.zero;
+
+
     }
+
+   
     void Start()
     {
         // Load saved health when the scene starts
-        if (PlayerPrefs.HasKey("PlayerHealth"))
+        /*if (PlayerPrefs.HasKey("PlayerHealth"))
         {
             health = PlayerPrefs.GetInt("PlayerHealth");
-        }
+        }*/
         if (GameManager.instance != null && GameManager.instance.lastScene == SceneManager.GetActiveScene().name)
         {
             transform.position = GameManager.instance.playerPosition; // Restore saved position
             Debug.Log("Loaded Player Position: " + transform.position);
         }
+        
     }
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        Debug.Log($"Player took {damage} damage. Health now: {health}");
 
+        // Ensure UI updates when health changes
+        References.HealthDisplay.UpdateHealthDisplay();
 
+        // Check if player died
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+    private void Die()
+    {
+        Debug.Log("Player has died!");
+        // Add death logic (respawn, game over, etc.)
+    }
+    public void LoadData(GameData data)
+    {
+
+        this.transform.position = data.playerPosition;
+        
+
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.playerPosition = this.transform.position;
+    }
     // Update is called once per frame
     void Update()
     {

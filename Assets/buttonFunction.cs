@@ -23,13 +23,6 @@ public class ButtonFunction : MonoBehaviour
             Debug.LogError("Scene name is not set in the Inspector!");
             return;
         }
-
-        // Save player position before switching scenes
-        /*GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            GameManager.instance.SavePlayerPosition(player.transform.position);
-        }*/
         
         SceneManager.LoadScene(sceneName);
     }

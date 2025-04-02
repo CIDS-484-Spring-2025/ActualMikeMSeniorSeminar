@@ -9,16 +9,21 @@ public class canvasBehavior : MonoBehaviour
     public GameObject creditsMenu;
     public GameObject inventoryMenu;
     public GameObject currentMenu;
+    public GameObject GoToMainMenu;
+
+    
+
     // Start is called before the first frame update
     void Awake()
     {
         References.CanvasBehavior = this;
     }
+
     // Update is called once per frame
     void Update()
     {
-        //opens menu if space bar is pressed
-        if(Input.GetKeyDown(KeyCode.Space))
+        // Opens menu if space bar is pressed
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (currentMenu == mainMenu)
             {
@@ -35,7 +40,6 @@ public class canvasBehavior : MonoBehaviour
     {
         ShowMenu(mainMenu);
     }
-
 
     public void HideMenu()
     {
@@ -64,13 +68,32 @@ public class canvasBehavior : MonoBehaviour
         SceneManager.LoadScene(firstScene.name);
     }
 
+    // New method to save data before quitting
+    public void SaveAndQuit()
+    {
+        // Save the game before quitting
+        DataPersistenceManager.instance.SaveGame();
+
+        // Quit the application
+        Application.Quit();
+
+        // If running in the Unity Editor, stop play mode
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
+
     public void Quit()
     {
-        Application.Quit();
-    } 
+        // Call SaveAndQuit before quitting
+        SaveAndQuit();
+    }
+
     public void showInventory()
     {
-        // to different menu to show inventory
+        // To a different menu to show inventory
         References.InventoryDisplay.ShowInventory();
     }
+
+   
 }
