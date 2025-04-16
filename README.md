@@ -9,6 +9,7 @@ https://mediaspace.wisconsin.edu/media/milestone1seniorsem/1_894ob21h
 ### Milestone 2
 https://mediaspace.wisconsin.edu/media/milestone+2+video/1_969zdjpp
 ### Milestone 3
+https://mediaspace.wisconsin.edu/media/1_u7877d8n
 
 ## Functional Things in the game 
 - enemy and player attack system  
