@@ -18,6 +18,9 @@ public class HealthDisplay : MonoBehaviour, IDataPersistence
         if (player != null && healthText != null)
         {
             healthText.text = " Your Health: " + player.health.ToString();
+            
+
+
         }
         else
         {

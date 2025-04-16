@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &79489332
 RectTransform:
   m_ObjectHideFlags: 0
@@ -825,6 +825,18 @@ PrefabInstance:
     - target: {fileID: 3925518081229120123, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
       propertyPath: m_Name
       value: buttonOrganizer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968442998331608786, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
+      propertyPath: m_Color.b
+      value: 0.10375927
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968442998331608786, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
+      propertyPath: m_Color.g
+      value: 0.10375927
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968442998331608786, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
+      propertyPath: m_Color.r
+      value: 0.93207544
       objectReference: {fileID: 0}
     - target: {fileID: 8227732514421346202, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
       propertyPath: m_Pivot.x
@@ -2818,7 +2830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &953716080
 RectTransform:
   m_ObjectHideFlags: 0

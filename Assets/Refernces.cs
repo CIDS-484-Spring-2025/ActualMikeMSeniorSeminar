@@ -20,4 +20,5 @@ public static class References
     public static MoneyDisplay MoneyDisplay;
     public static HealthDisplay HealthDisplay;
     public static WeaponRespawn WeaponRespawn;
+    public static inofbuttonscene inofbuttonscene;
 }

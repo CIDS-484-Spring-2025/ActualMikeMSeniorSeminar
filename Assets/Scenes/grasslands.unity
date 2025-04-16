@@ -6256,7 +6256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 661.67725, y: 388.47937}
+  m_AnchoredPosition: {x: 661.67725, y: 441}
   m_SizeDelta: {x: 590.6451, y: 75.0413}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397179759
@@ -6320,15 +6320,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -9686,6 +9686,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 104146229}
     m_Modifications:
+    - target: {fileID: 4826550764439981281, guid: 6b3d7a4321638ce42ac84e22f7ec045a, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826550764439981281, guid: 6b3d7a4321638ce42ac84e22f7ec045a, type: 3}
+      propertyPath: m_margin.w
+      value: -19.836155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826550764439981281, guid: 6b3d7a4321638ce42ac84e22f7ec045a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826550764439981281, guid: 6b3d7a4321638ce42ac84e22f7ec045a, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 4096
+      objectReference: {fileID: 0}
     - target: {fileID: 8057731099865230088, guid: 6b3d7a4321638ce42ac84e22f7ec045a, type: 3}
       propertyPath: m_Name
       value: money
@@ -9756,7 +9772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8231471340197029385, guid: 6b3d7a4321638ce42ac84e22f7ec045a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 405
+      value: 457
       objectReference: {fileID: 0}
     - target: {fileID: 8231471340197029385, guid: 6b3d7a4321638ce42ac84e22f7ec045a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

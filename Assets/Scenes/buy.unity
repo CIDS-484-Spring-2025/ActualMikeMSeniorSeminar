@@ -5331,7 +5331,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.87169814, g: 0.090459146, b: 0.090459146, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6047,6 +6047,18 @@ PrefabInstance:
     - target: {fileID: 3925518081229120123, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
       propertyPath: m_Name
       value: buttonOrganizer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968442998331608786, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
+      propertyPath: m_Color.b
+      value: 0.07663221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968442998331608786, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
+      propertyPath: m_Color.g
+      value: 0.07663221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968442998331608786, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
+      propertyPath: m_Color.r
+      value: 0.86415094
       objectReference: {fileID: 0}
     - target: {fileID: 8227732514421346202, guid: 1e5600e28ebcbec4b875c6bb89757936, type: 3}
       propertyPath: m_Pivot.x

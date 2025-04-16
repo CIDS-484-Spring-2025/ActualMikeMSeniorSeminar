@@ -36,7 +36,7 @@ public class NewScene : MonoBehaviour
     }
 
 
-    private void LoadScene()
+    public void LoadScene()
     {
         if (!string.IsNullOrEmpty(newScene))
         {

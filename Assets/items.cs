@@ -108,6 +108,7 @@ public class InventoryDisplay : MonoBehaviour
 
         // Update the health UI
         References.HealthDisplay.UpdateHealthDisplay();
+        
 
         // Remove item from inventory
         if (GameManager.instance.inventory.Contains(item))
@@ -130,5 +131,6 @@ public class InventoryDisplay : MonoBehaviour
 
         // Refresh inventory UI
         ShowInventory();
+        DataPersistenceManager.instance.SaveGame();
     }
 }

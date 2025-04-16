@@ -49,6 +49,7 @@ public class canvasBehavior : MonoBehaviour
         }
         currentMenu = null;
         Time.timeScale = 1;
+        
     }
 
     public void ShowMenu(GameObject menuToShow)
@@ -93,6 +94,8 @@ public class canvasBehavior : MonoBehaviour
     {
         // To a different menu to show inventory
         References.InventoryDisplay.ShowInventory();
+        DataPersistenceManager.instance.SaveGame();
+
     }
 
    

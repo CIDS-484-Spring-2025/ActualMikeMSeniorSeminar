@@ -48,16 +48,21 @@ public class PlayerBehaviour : MonoBehaviour, IDataPersistence
 
         // Ensure UI updates when health changes
         References.HealthDisplay.UpdateHealthDisplay();
+        DataPersistenceManager.instance.SaveGame();
 
         // Check if player died
         if (health <= 0)
         {
+            health = 0;
             Die();
         }
     }
     private void Die()
     {
         Debug.Log("Player has died!");
+        //trigger message to go to a button menu 
+        SceneManager.LoadScene("deathScreen");
+
         // Add death logic (respawn, game over, etc.)
     }
     public void LoadData(GameData data)
@@ -71,6 +76,7 @@ public class PlayerBehaviour : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data)
     {
         data.playerPosition = this.transform.position;
+        
     }
     // Update is called once per frame
     void Update()

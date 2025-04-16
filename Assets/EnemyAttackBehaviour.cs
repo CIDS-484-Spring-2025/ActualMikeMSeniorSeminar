@@ -6,6 +6,7 @@ public class EnemyAttackBehaviour : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float speed; // Speed of the bullet
     private Rigidbody2D AttackRigidBody;
+
     
        void Start()
     {
