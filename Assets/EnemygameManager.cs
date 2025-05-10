@@ -39,7 +39,10 @@ public class EnemygameManager : MonoBehaviour
         if (time < numofattacks && Time.time >= nextAttackTime)
 
         {
-           
+           if(References.thePlayer.health <= 0)
+            {
+                return;
+            }
             if (References.EnemyBehavior != null)
             {
                 References.EnemyBehavior.Attack(); // or whatever you're calling

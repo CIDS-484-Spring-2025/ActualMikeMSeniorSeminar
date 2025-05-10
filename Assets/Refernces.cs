@@ -21,4 +21,5 @@ public static class References
     public static HealthDisplay HealthDisplay;
     public static WeaponRespawn WeaponRespawn;
     public static inofbuttonscene inofbuttonscene;
+    public static GameData GameData;
 }

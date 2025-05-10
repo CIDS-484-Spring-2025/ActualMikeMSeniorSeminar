@@ -17,6 +17,8 @@ public class EnemyBehavior : MonoBehaviour
     public GameObject bigAttack;
     public Boolean isDestroyed = false;
     private int randomNumber;
+    private bool isAttacking = false; // Prevents overlapping attacks
+    private bool attackisDestroyed = false; // Tracks if the object is destroyed
 
     private void Awake()
     {
@@ -72,93 +74,143 @@ public class EnemyBehavior : MonoBehaviour
             SceneManager.LoadScene(previousScene);
         }
     }
-    private void Update()
+    void Update()
     {
-        if (References.EnemyBehavior == null)
+        /*if (References.EnemyBehavior == null)
+        {
+            return;
+        }*/
+      
+        if (References.thePlayer.health <= 0)
         {
             return;
         }
     }
+    
     public async void Attack()
     {
-        if (attackPrefab == null || secondAttack == null || thirdAttack == null || bigAttack == null || References.EnemyBehavior == null)
+        if (isAttacking || attackisDestroyed) return; // Block if already attacking or destroyed
+
+        isAttacking = true; // Set attacking flag to true
+
+        switch (randomNumber)
         {
-            Debug.LogError("attackPrefab is not assigned in the Inspector!");
-            return;
+            case 0:
+                Debug.Log("Using attack pattern 1");
+                await AttackPattern1();
+                break;
+            case 1:
+                Debug.Log("Using attack pattern 2");
+                await AttackPattern2();
+                break;
+            default:
+                Debug.Log("Using attack pattern 3");
+                await AttackPattern3();
+                break;
         }
-       
 
-
-        //Vector3 attackOffset = new Vector3(1f, 0f, 0f);
-        //GameObject newAttack = Instantiate(attackPrefab, transform.position + attackOffset, transform.rotation);
-        if(isDestroyed = true)
-        {
-            isDestroyed = false;
-        }
-        if (isDestroyed == false)
-        {
-            //int randomNumber = UnityEngine.Random.Range(0, 3);
-            if (randomNumber == 0) {
-                Vector3 attack1Offset = new Vector3(-1.4f, 0f, -1.4f); // Diagonal direction
-                Quaternion attack1newRotation = Quaternion.LookRotation(attack1Offset); // Rotate to face that direction
-                Vector3 attack1Offset1 = new Vector3(1.4f, 0f, -1.4f); // Diagonal direction
-                Quaternion attack1newRotation1 = Quaternion.LookRotation(attack1Offset); // Rotate to face that direction
-                Vector3 attack1Offset2 = new Vector3(-1.0f, 0f, -1.4f); // Diagonal direction
-                Quaternion attack1newRotation2 = Quaternion.LookRotation(attack1Offset2); // Rotate to face that direction
-                Vector3 attack1Offset3 = new Vector3(0f, 0f, -1.4f); // Diagonal direction
-                Quaternion attack1newRotation3 = Quaternion.LookRotation(attack1Offset3); // Rotate to face that direction
-                GameObject attack1newAttack = Instantiate(attackPrefab, transform.position + attack1Offset, attack1newRotation);
-                await Task.Delay(500);
-                GameObject attack1newAttack2 = Instantiate(attackPrefab, transform.position + attack1Offset2, attack1newRotation2);
-                await Task.Delay(500);
-                GameObject attack1newAttack3 = Instantiate(attackPrefab, transform.position + attack1Offset3, attack1newRotation3);
-                await Task.Delay(500);
-                GameObject attack1newAttack1 = Instantiate(attackPrefab, transform.position + attack1Offset1, attack1newRotation1);
-            }
-            else if (randomNumber == 1) {
-            //attack 3
-            Vector3 attack2Offset1 = new Vector3(2f, 0f, 0f); // Or whatever direction you want
-            Vector3 attack2Offset2 = new Vector3(-2f, 0f, 0f);
-            // Calculate angle based on x/y direction
-            float attack2angle = Mathf.Atan2(attack2Offset1.y, attack2Offset1.x) * Mathf.Rad2Deg;
-            float attack2angle1 = Mathf.Atan2(attack2Offset2.y, attack2Offset2.x) * Mathf.Rad2Deg;
-            // Set rotation around Z (for 2D)
-            Quaternion attack2newRotation = Quaternion.Euler(0f, 0f, attack2angle);
-            Quaternion attack2newRotation1 = Quaternion.Euler(0f, 0f, attack2angle1);
-
-            GameObject newAttack = Instantiate(secondAttack, transform.position + attack2Offset1, attack2newRotation);
-            await Task.Delay(500); // Wait 3 seconds
-            GameObject newAttack1 = Instantiate(secondAttack, transform.position + attack2Offset2, attack2newRotation1);
-        }
-        else
-        {
-            //attack 3
-            Vector3 attack3Offset = new Vector3(-1.6f, 0f, 2f); // Diagonal direction
-            Quaternion attack3newRotation = Quaternion.LookRotation(attack3Offset); // Rotate to face that direction
-            Vector3 attack3Offset1 = new Vector3(1.6f, 0f, -2f); // Diagonal direction
-            Quaternion attack3newRotation1 = Quaternion.LookRotation(attack3Offset1); // Rotate to face that direction
-            Vector3 attack3Offset2 = new Vector3(-.5f, 0f, 2f); // Diagonal direction
-            Quaternion attack3newRotation2 = Quaternion.LookRotation(attack3Offset2); // Rotate to face that direction
-            Vector3 attack3Offset3 = new Vector3(.5f, 0f, 2f); // Diagonal direction
-            Quaternion attack3newRotation3 = Quaternion.LookRotation(attack3Offset3);
-            Vector3 bigattackOffset = new Vector3(-1.8f, 0f, 2f);
-            Quaternion bigattacknewRotation = Quaternion.LookRotation(bigattackOffset);
-            Vector3 bigattackOffset1 = new Vector3(1.8f, 0f, 2f);
-            Quaternion bigattacknewRotation1 = Quaternion.LookRotation(bigattackOffset1);
-            GameObject attack3newAttack = Instantiate(thirdAttack, transform.position + attack3Offset, attack3newRotation);
-            await Task.Delay(500);
-            GameObject attack3newAttack1 = Instantiate(thirdAttack, transform.position + attack3Offset1, attack3newRotation1);
-            await Task.Delay(500);
-            GameObject attack3newAttack2 = Instantiate(thirdAttack, transform.position + attack3Offset2, attack3newRotation2);
-            await Task.Delay(500);
-            GameObject attack3newAttack3 = Instantiate(thirdAttack, transform.position + attack3Offset3, attack3newRotation3);
-            await Task.Delay(4500);
-            GameObject bigattacknewAttack = Instantiate(bigAttack, transform.position + bigattackOffset, bigattacknewRotation);
-            GameObject bigattacknewAttack1 = Instantiate(bigAttack, transform.position + bigattackOffset1, bigattacknewRotation1);
-
-
-        }
-       }
-
+        isAttacking = false; // Reset attacking flag after the attack is done
     }
+
+    private async Task AttackPattern1()
+    {
+        Vector3[] offsets = {
+            new Vector3(-1.4f, 0f, -1.4f),
+            new Vector3(-1.0f, 0f, -1.4f),
+            new Vector3(0f, 0f, -1.4f),
+            new Vector3(1.4f, 0f, -1.4f)
+        };
+
+        foreach (var offset in offsets)
+        {
+
+            if (References.thePlayer.health <= 0)
+            {
+                return;
+            } // Stop if destroyed
+
+            Quaternion rotation = Quaternion.LookRotation(offset);
+            Instantiate(attackPrefab, transform.position + offset, rotation);
+            await Task.Delay(200); // Delay between attacks
+        }
+    }
+
+    private async Task AttackPattern2()
+    {
+        Vector3[] offsets = {
+            new Vector3(2f, 0f, 0f),
+            new Vector3(-2f, 0f, 0f)
+        };
+
+        foreach (var offset in offsets)
+        {
+
+            if (References.thePlayer.health <= 0)
+            {
+                return;
+            } // Stop if destroyed
+
+            float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+            Instantiate(secondAttack, transform.position + offset, rotation);
+            await Task.Delay(300); // Delay between attacks
+        }
+    }
+
+    private async Task AttackPattern3()
+    {
+        Vector3[] thirdOffsets = {
+            new Vector3(-1.6f, 0f, 2f),
+            new Vector3(1.6f, 0f, -2f),
+            new Vector3(-.5f, 0f, 2f),
+            new Vector3(.5f, 0f, 2f)
+        };
+
+        foreach (var offset in thirdOffsets)
+        {
+
+            if (References.thePlayer.health <= 0)
+            {
+                return;
+            } // Stop if destroyed
+
+            Quaternion rotation = Quaternion.LookRotation(offset);
+            Instantiate(thirdAttack, transform.position + offset, rotation);
+            await Task.Delay(300); // Delay between attacks
+        }
+
+        await Task.Delay(400); // Delay before big attacks
+
+
+        if (References.thePlayer.health <= 0)
+        {
+            return;
+        } // Check again if destroyed before proceeding
+
+        Vector3[] bigOffsets = {
+            new Vector3(-1.8f, 0f, 2f),
+            new Vector3(1.8f, 0f, 2f)
+        };
+
+        foreach (var offset in bigOffsets)
+        {
+
+            if (References.thePlayer.health <= 0)
+            {
+                return;
+            } // Stop if destroyed
+
+            Quaternion rotation = Quaternion.LookRotation(offset);
+            Instantiate(bigAttack, transform.position + offset, rotation);
+        }
+    }
+
+    // Call this function to set the object as destroyed
+    public void DestroyObject()
+    {
+        attackisDestroyed = true; // Mark as destroyed
+        isAttacking = false; // Ensure no more attacks can happen
+    }
+
+    
 }

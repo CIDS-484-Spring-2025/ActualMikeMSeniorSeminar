@@ -3,18 +3,22 @@ using UnityEngine;
 public class imageRotator : MonoBehaviour
 {
     public Vector3 rotationSpeed = new Vector3(0, 100, 0); // degrees per second
-    int time = 0;
     public GameObject firstPic;
     public GameObject scaryPic;
     public GameObject scaryPic1;
     public GameObject scaryPic2;
     public GameObject scaryPic3;
+
+    private float timer = 0f;
+    public float showScaryImagesAfter = 10f; // time in seconds
+
     void Update()
     {
-        
         transform.Rotate(rotationSpeed * Time.deltaTime);
-        
-        if(time > 4000)
+
+        timer += Time.deltaTime;
+
+        if (timer > showScaryImagesAfter)
         {
             firstPic.SetActive(false);
             scaryPic.SetActive(true);
@@ -22,7 +26,6 @@ public class imageRotator : MonoBehaviour
             scaryPic2.SetActive(true);
             scaryPic3.SetActive(true);
         }
-        //Debug.Log(time);
-        time++;
     }
 }
+

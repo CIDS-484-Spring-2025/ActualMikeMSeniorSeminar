@@ -46,6 +46,7 @@ public class MoneyDisplay : MonoBehaviour, IDataPersistence
         }
 
         // If not enough money, log a failure
+        //add message for this in buy shop
         Debug.Log("Not enough money to spend!");
         return false; // Return false indicating failure
     }

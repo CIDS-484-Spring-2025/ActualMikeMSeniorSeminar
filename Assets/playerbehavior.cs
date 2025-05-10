@@ -55,6 +55,9 @@ public class PlayerBehaviour : MonoBehaviour, IDataPersistence
         {
             health = 0;
             Die();
+            //reset health after death
+            health = 10;
+            DataPersistenceManager.instance.SaveGame();
         }
     }
     private void Die()

@@ -5,6 +5,7 @@ public class NewScene : MonoBehaviour
 {
     public string newScene; // Set this in the Inspector
     
+
     private void Awake()
     {
         // If this object was already interacted with, disable it
@@ -14,6 +15,7 @@ public class NewScene : MonoBehaviour
         }
     }
 
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -40,12 +42,33 @@ public class NewScene : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(newScene))
         {
+            CheckScene();
             SceneManager.LoadScene(newScene);
         }
+
         else
         {
             Debug.LogError("Scene name is not set.");
         }
     }
+
+    public void CheckScene()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        Debug.Log(currentScene);
+        if (SceneManager.GetActiveScene().name == "grasslands")
+        {
+            Debug.Log("grasslands");
+            References.GameManager.level++;
+            //DataPersistenceManager.instance.SaveGame();
+        }
+        if (SceneManager.GetActiveScene().name == "jungle")
+        {
+            Debug.Log("jungle");
+            References.GameManager.level++;
+            
+        }
+    }
+    
 }
 

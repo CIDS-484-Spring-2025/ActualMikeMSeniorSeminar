@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine.UIElements;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
     public static GameManager instance; // Singleton instance
 
@@ -13,11 +13,12 @@ public class GameManager : MonoBehaviour
     public List<string> pickedUpObjects = new List<string>(); // Store picked-up objects
     public List<string> inventory = new List<string>(); // Store collected items
     public int money = 100; // Default starting money
-    
+    public int level = 0; 
 
 
     void Awake()
     {
+        References.GameManager = this;
         if (instance == null)
         {
             instance = this;
@@ -27,12 +28,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
+   
 
-    
-
-    // Save player position
-    public void SavePlayerPosition(Vector3 position)
+// Save player position
+public void SavePlayerPosition(Vector3 position)
     {
         playerPosition = position;
         lastScene = SceneManager.GetActiveScene().name;
@@ -68,5 +69,13 @@ public class GameManager : MonoBehaviour
     {
         return pickedUpObjects.Contains(objectName);
     }
-    
+    public void LoadData(GameData data)
+    {
+        level = data.level;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.level = level;
+    }
 }

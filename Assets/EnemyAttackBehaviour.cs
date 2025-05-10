@@ -29,8 +29,9 @@ public class EnemyAttackBehaviour : MonoBehaviour
     {
         if (other.CompareTag("destroyer"))
         {
-            Destroy(gameObject); // Destroy this object when the player enters the trigger zone
+            //Destroy(gameObject); // Destroy this object when the player enters the trigger zone
             References.EnemyBehavior.isDestroyed = true;
+            Destroy(gameObject);
         }
         
     }

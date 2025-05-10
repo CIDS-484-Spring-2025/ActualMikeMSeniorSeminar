@@ -11,13 +11,22 @@ public class GameData
     public Vector3 playerPosition;
     public SerializableDictionary<string, bool> itemsCollected;
     public AttributesData playerAttributesData;
+    public int level;
 
     // the values defined in this constructor will be the default values
     // the game starts with when there's no data to load
+    private void Awake()
+    {
+
+        References.GameData = this;
+       
+
+    }
     public GameData()
     {
         this.dinoDabloons = 100;
         this.playerHealth = 10;
+        this.level = 0;
         playerPosition = Vector3.zero;
         itemsCollected = new SerializableDictionary<string, bool>();
         playerAttributesData = new AttributesData();

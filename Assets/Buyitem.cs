@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using static UnityEditor.Progress;
 using static UnityEditorInternal.ReorderableList;
 using System.Xml.Linq;
+using System.Collections;
 
 public class BuyItem : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class BuyItem : MonoBehaviour
 
     public RectTransform cursor; // Cursor reference
     public List<Button> buttons; // List of buttons to navigate
+    
 
     void Update()
     {
@@ -27,9 +29,10 @@ public class BuyItem : MonoBehaviour
         if (selectedButton != null)
         {
             CheckIfBuying(selectedButton);
+            
         }
     }
-    
+
 
     public void CheckIfBuying(Button selectedButton)
     {
@@ -37,12 +40,16 @@ public class BuyItem : MonoBehaviour
         {
             return; // Prevent multiple UIs
         }
+        if (selectedButton == null || selectedButton.gameObject == null) {
+            return;
+        }
 
+        
         if (!isBuying && Input.GetKeyDown(KeyCode.A))
 
         {
+                
 
-            
                 currentItemName = selectedButton.gameObject.name;
                 Debug.Log($"Buying started for: {currentItemName}");
 
@@ -68,22 +75,26 @@ public class BuyItem : MonoBehaviour
         else if (isBuying && Input.GetKeyDown(KeyCode.A))
         {
             int cost = GetItemCost(currentItemName); // Get the cost of the selected item
+            
             if (References.MoneyDisplay.SpendMoney(cost))
             //GameManager.instance.SpendMoney(cost)) // Check if player has enough money old version
             {
                 Debug.Log($"Confirmed purchase: {currentItemName}");
                 GameManager.instance.AddPickedUpObject(currentItemName);
                 References.MoneyDisplay.UpdateMoneyUI();
+                
             }
-        
 
 
-            buyconfirm.SetActive(false);
+            
             isBuying = false;
             activeBuyItem = null;
-
+            
             // Remove the button from the list and destroy it
             RemoveButton(selectedButton);
+            
+
+
         }
 
         if (isBuying && Input.GetKeyDown(KeyCode.E))
@@ -94,6 +105,7 @@ public class BuyItem : MonoBehaviour
             activeBuyItem = null;
         }
     }
+   
 
     private int GetItemCost(string itemName)
     {
@@ -143,6 +155,7 @@ public class BuyItem : MonoBehaviour
         {
             buttons.Remove(button);
             Destroy(button.gameObject);
+            
         }
     }
 
