@@ -4,7 +4,7 @@ The game I am creating for this class is a 2D RPG (role-playing game) that will 
 ## Progress
 The progress so far has been creating the starting scene. In this scene, the player can move around with the arrow keys, pick up weapons and items, and even enter a fight. During a fight, they can flee, spare, attack, or get information about the monster. After the fight, the player keeps all the items and weapons they had before entering. The battle system is almost complete, except that I need to add a condition for when someone can spare an enemy and get the information button to work. I have updated the starting scene to be more complete and better reflect the environment I want. I have created a menu that can resume and pause the game, show the inventory for items picked up, display credits, and provide a quit function. In addition to this, I have created a health system, an enemey and a player attack system and item usage that will restore or bring up the players health. I have completed most of what I promised for this milestone, like an item shop and a save system. I also added new enemy attacks, a condition that enables the spare button after checking the info button three times during a fight, and a death screen Currently, there is a one bug that I haven't been able to fix yet but it should be solved before the semester is over. 
 
-##Demo
+## Demo
 For the Demo, only one area will be open to play unofortunately. 
 
 ## Milestones
